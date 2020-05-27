@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conference Information</title>
+
+</head>
+
+<body>
+
+    <h1>Enter a Keyword to Search for Conference</h1>
+    <form action="/data" method="GET">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder=" " name="searchterm">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+    <br>
+    
+    <h1>Upcoming Conference and their details</h1>
+
+    <div class="row">
+
+        <h1>PAID</h1>
+        <% for(var i = 0;i< apiDataPaid.length;i++){ %>
+        <div style="background-color: <%= apiDataPaid[i].color %> width: 290px; border:2px solid red ; margin-top:2px">
+            <img src="<%= apiDataPaid[i].imageURL %>" style="width:100%; height: 180px;" />
+            <p><strong>confName</strong>: <%= apiDataPaid[i].confName %></p>
+            <p><strong>confDate</strong>: <%= apiDataPaid[i].confStartDate %> - <%= apiDataPaid[i].confEndDate %></p>
+            <p><strong>venue</strong>: <%= apiDataPaid[i].venue %> </p>
+        </div>
+        <% } %>
+
+    </div>
+
+    <div class="row">
+        <h1>Free</h1>
+        <% for(var i = 0;i < apiDataFree.length;i++){ %>
+        <div style="background-color: <%= apiDataFree[i].color %> width: 290px; border:2px solid red ; margin-top:2px">
+            <img src="<%= apiDataFree[i].imageURL %>" style="width:100%; height: 180px;" />
+            <p><strong>confName</strong>: <%= apiDataFree[i].confName %></p>
+            <p><strong>confDate</strong>: <%= apiDataFree[i].confStartDate %> - <%= apiDataFree[i].confEndDate %></p>
+            <p><strong>venue</strong>: <%= apiDataFree[i].venue %> </p>
+        </div>
+        <% } %>
+
+    </div>
+
+</body>
+
+</html>
